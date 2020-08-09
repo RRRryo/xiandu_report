@@ -63,6 +63,8 @@ public class Trade {
     private String pic_path;
     private String buyer_nick;
     private String receiver_phone;
+    private List<Trade> trades;
+
     public void setAdjust_fee(String adjust_fee) {
          this.adjust_fee = adjust_fee;
      }
@@ -413,4 +415,11 @@ public class Trade {
          return receiver_phone;
      }
 
+    public List<Trade> getTrades() {
+        return trades;
+    }
+
+    public void setTrades(List<Trade> trades) {
+        this.trades = trades;
+    }
 }

@@ -6,6 +6,7 @@ package com.xiandu.model;
  */
 public class ReportItem {
 
+    private int orderId;
 
     private String receiverName;
 
@@ -17,7 +18,29 @@ public class ReportItem {
 
     private String productName;
 
-    private double productQty;
+    private String productShortName;
+
+    private String skuId;
+
+    private String skuName;
+
+    private String skuShortName;
+
+    private int skuRatio = 1;
+
+    private double originalQty;
+
+    private double convQty;
+
+    private String logistic = "默认";
+
+    public int getOrderId() {
+        return orderId;
+    }
+
+    public void setOrderId(int orderId) {
+        this.orderId = orderId;
+    }
 
     public String getReceiverName() {
         return receiverName;
@@ -59,11 +82,67 @@ public class ReportItem {
         this.productName = productName;
     }
 
-    public double getProductQty() {
-        return productQty;
+    public String getSkuName() {
+        return skuName;
     }
 
-    public void setProductQty(double productQty) {
-        this.productQty = productQty;
+    public void setSkuName(String skuName) {
+        this.skuName = skuName;
+    }
+
+    public double getOriginalQty() {
+        return originalQty;
+    }
+
+    public void setOriginalQty(double originalQty) {
+        this.originalQty = originalQty;
+    }
+
+    public String getLogistic() {
+        return logistic;
+    }
+
+    public void setLogistic(String logistic) {
+        this.logistic = logistic;
+    }
+
+    public String getSkuId() {
+        return skuId;
+    }
+
+    public void setSkuId(String skuId) {
+        this.skuId = skuId;
+    }
+
+    public int getSkuRatio() {
+        return skuRatio;
+    }
+
+    public void setSkuRatio(int skuRatio) {
+        this.skuRatio = skuRatio;
+    }
+
+    public String getSkuShortName() {
+        return skuShortName;
+    }
+
+    public void setSkuShortName(String skuShortName) {
+        this.skuShortName = skuShortName;
+    }
+
+    public String getProductShortName() {
+        return productShortName;
+    }
+
+    public void setProductShortName(String productShortName) {
+        this.productShortName = productShortName;
+    }
+
+    public double getConvQty() {
+        return convQty;
+    }
+
+    public void setConvQty(double convQty) {
+        this.convQty = convQty;
     }
 }
