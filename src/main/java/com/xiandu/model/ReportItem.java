@@ -34,6 +34,8 @@ public class ReportItem {
 
     private String logistic = "默认";
 
+    private String sellerMemo;
+
     public int getOrderId() {
         return orderId;
     }
@@ -144,5 +146,13 @@ public class ReportItem {
 
     public void setConvQty(double convQty) {
         this.convQty = convQty;
+    }
+
+    public String getSellerMemo() {
+        return sellerMemo;
+    }
+
+    public void setSellerMemo(String sellerMemo) {
+        this.sellerMemo = sellerMemo;
     }
 }

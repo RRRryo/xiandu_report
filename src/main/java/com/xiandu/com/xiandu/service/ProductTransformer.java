@@ -13,6 +13,7 @@ import java.nio.file.Files;
 import java.nio.file.Path;
 import java.util.List;
 import java.util.Map;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 /**
@@ -54,22 +55,30 @@ public class ProductTransformer {
         Map<String, String> productMap = productList.stream()
                 .collect(Collectors.toMap(Product::getProduct_long_name, Product::getProduct_short_name));
 
-        Map<String, Sku> skuMap = skuList.stream().collect(Collectors.toMap(Sku::getSku_properties_name, sku -> sku));
-
-
         for (ReportItem reportItem : reportItemList) {
 
-            String productShortName = productMap.get(reportItem.getProductName());
+            Optional<Product> product = productList.stream()
+                    .filter(targetProduct ->
+                            reportItem.getProductName().contains(targetProduct.getProduct_long_name()))
+                    .findFirst();
 
-            reportItem.setProductShortName(productShortName);
+            if (product.isPresent()) {
+                reportItem.setProductShortName(product.get().getProduct_short_name());
+            }
 
-            Sku sku = skuMap.get(reportItem.getSkuName());
-            if (sku != null) {
-                String skuShortName = sku.getSku_short_name();
-                int skuRatio = sku.getSku_ratio();
+            if (reportItem.getSkuName() != null) {
+                Optional<Sku> sku = skuList.stream()
+                        .filter(targetSku ->
+                                reportItem.getSkuName().contains(targetSku.getSku_properties_name()))
+                        .findFirst();
 
-                reportItem.setSkuShortName(skuShortName);
-                reportItem.setSkuRatio(skuRatio);
+                if (sku.isPresent()) {
+                    String skuShortName = sku.get().getSku_short_name();
+                    int skuRatio = sku.get().getSku_ratio();
+
+                    reportItem.setSkuShortName(skuShortName);
+                    reportItem.setSkuRatio(skuRatio);
+                }
             }
             reportItem.setConvQty(reportItem.getOriginalQty() * reportItem.getSkuRatio());
 

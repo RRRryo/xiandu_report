@@ -1,10 +1,126 @@
 [
   {
-    "product_long_name": "仙都辣酱鸭 镇店爆款酱板鸭 全鸭 正宗湖南醴陵特产 仙都酱板鸭",
-    "product_short_name": "酱板鸭"
+    "product_long_name": "镇店爆款酱板鸭",
+    "product_short_name": "散装鸭"
   },
   {
-    "product_long_name": "仙都辣酱鸭 爆款大鸭舌 正宗湖南醴陵特产香辣卤味零食酱板鸭小吃",
+    "product_long_name": "鸭脖",
+    "product_short_name": "鸭脖"
+  },
+  {
+    "product_long_name": "鸭筋",
+    "product_short_name": "鸭筋"
+  },
+  {
+    "product_long_name": "鸭排",
+    "product_short_name": "鸭排"
+  },
+  {
+    "product_long_name": "麻辣素丝",
+    "product_short_name": "麻辣素丝"
+  },
+  {
+    "product_long_name": "碎碎鸭",
+    "product_short_name": "碎碎鸭"
+  },
+  {
+    "product_long_name": "柴火香干",
+    "product_short_name": "柴火香干"
+  },
+  {
+    "product_long_name": "鸭肫",
+    "product_short_name": "鸭肫"
+  },
+  {
+    "product_long_name": "大鸭爪",
+    "product_short_name": "大鸭爪"
+  },
+  {
+    "product_long_name": "鸡爪",
+    "product_short_name": "鸡爪"
+  },
+  {
+    "product_long_name": "上瘾牛肉",
+    "product_short_name": "上瘾牛肉"
+  },
+  {
+    "product_long_name": "鸭翅",
+    "product_short_name": "鸭翅"
+  },
+  {
+    "product_long_name": "鸭肠",
+    "product_short_name": "鸭肠"
+  },
+  {
+    "product_long_name": "小鸭爪",
+    "product_short_name": "小鸭爪"
+  },
+  {
+    "product_long_name": "肉条",
+    "product_short_name": "肉条"
+  },
+  {
+    "product_long_name": "小鸭舌",
+    "product_short_name": "小鸭舌"
+  },
+  {
+    "product_long_name": "大鸭舌",
     "product_short_name": "大鸭舌"
+  },
+  {
+    "product_long_name": "牙签牛肉",
+    "product_short_name": "牙签牛肉"
+  },
+  {
+    "product_long_name": "无骨鸭掌",
+    "product_short_name": "无骨鸭掌"
+  },
+  {
+    "product_long_name": "脆鸭爪",
+    "product_short_name": "脆鸭爪"
+  },
+  {
+    "product_long_name": "鸡汁香干",
+    "product_short_name": "鸡汁香干"
+  },
+  {
+    "product_long_name": "微辣鸭爪",
+    "product_short_name": "微辣鸭爪"
+  },
+  {
+    "product_long_name": "鹌鹑",
+    "product_short_name": "鹌鹑"
+  },
+  {
+    "product_long_name": "锁骨",
+    "product_short_name": "锁骨"
+  },
+  {
+    "product_long_name": "鸭头",
+    "product_short_name": "鸭头"
+  },
+  {
+    "product_long_name": "香辣鱼仔",
+    "product_short_name": "香辣鱼仔"
+  },
+  {
+    "product_long_name": "爽口鹅肠",
+    "product_short_name": "爽口鹅肠"
+  },
+  {
+    "product_long_name": "翅尖",
+    "product_short_name": "翅尖"
+  },
+  {
+    "product_long_name": "精品酱鸭",
+    "product_short_name": "精品酱鸭"
+  },
+  {
+    "product_long_name": "礼品酱鸭",
+    "product_short_name": "礼品酱鸭"
+  },
+  {
+    "product_long_name": "顺丰到付",
+    "product_short_name": "麻辣素丝"
   }
 ]

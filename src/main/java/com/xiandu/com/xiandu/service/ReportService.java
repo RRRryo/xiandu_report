@@ -89,6 +89,8 @@ public class ReportService {
                 reportItem.setSkuId(order.getSku_id());
                 reportItem.setOriginalQty(order.getNum());
 
+                reportItem.setSellerMemo(trade.getSeller_memo());
+
                 reportItemList.add(reportItem);
             }
 
