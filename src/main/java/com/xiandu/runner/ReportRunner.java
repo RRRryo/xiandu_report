@@ -1,15 +1,17 @@
 package com.xiandu.runner;
 
 import com.google.gson.Gson;
-import com.xiandu.com.xiandu.factory.XianduGsonFactory;
-import com.xiandu.com.xiandu.service.ReportService;
+import com.xiandu.factory.XianduGsonFactory;
+import com.xiandu.service.ReportService;
 import com.xiandu.model.JsonRootBean;
+import com.xiandu.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -23,20 +25,26 @@ public class ReportRunner {
 
             ReportService reportService = new ReportService();
 
-            String inputFile = "c://xiandu/input/trade.json";
+            List<JsonRootBean> jsonRootBeanList = new ArrayList<>();
 
-            File file = new File(inputFile);
+            for (int i=0; i< 2; i++) {
 
-            Path path = file.toPath();
+                String filePath = i == 0 ? Constants.INPUT_FILE_1 : Constants.INPUT_FILE_2;
 
-            List<String> jsonStrList = Files.readAllLines(path);
-            String jsonStr = StringUtils.join(jsonStrList, "");
+                File file = new File(filePath);
 
-            Gson gson = XianduGsonFactory.getXianduGson();
+                Path path = file.toPath();
 
-            JsonRootBean jsonRootBean = gson.fromJson(jsonStr, JsonRootBean.class);
+                List<String> jsonStrList = Files.readAllLines(path);
+                String jsonStr = StringUtils.join(jsonStrList, "");
 
-            reportService.execute(jsonRootBean);
+                Gson gson = XianduGsonFactory.getXianduGson();
+
+                jsonRootBeanList.add(gson.fromJson(jsonStr, JsonRootBean.class));
+
+            }
+
+            reportService.execute(jsonRootBeanList);
             
         } catch (IOException e) {
             e.printStackTrace();

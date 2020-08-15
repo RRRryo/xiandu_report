@@ -1,4 +1,4 @@
-package com.xiandu.com.xiandu.factory;
+package com.xiandu.factory;
 
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;

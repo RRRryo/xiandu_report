@@ -64,6 +64,8 @@ public class Trade {
     private String buyer_nick;
     private String receiver_phone;
     private List<Trade> trades;
+    private String mergeTid;
+
 
     public void setAdjust_fee(String adjust_fee) {
          this.adjust_fee = adjust_fee;
@@ -421,5 +423,13 @@ public class Trade {
 
     public void setTrades(List<Trade> trades) {
         this.trades = trades;
+    }
+
+    public String getMergeTid() {
+        return mergeTid;
+    }
+
+    public void setMergeTid(String mergeTid) {
+        this.mergeTid = mergeTid;
     }
 }

@@ -1,4 +1,4 @@
-package com.xiandu.com.xiandu.service;
+package com.xiandu.service;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
@@ -51,9 +51,6 @@ public class ProductTransformer {
         List<Product> productList = gsonProduct.fromJson(productStr, new TypeToken<List<Product>>(){}.getType());
 
         List<Sku> skuList = skuProduct.fromJson(skuStr, new TypeToken<List<Sku>>(){}.getType());
-
-        Map<String, String> productMap = productList.stream()
-                .collect(Collectors.toMap(Product::getProduct_long_name, Product::getProduct_short_name));
 
         for (ReportItem reportItem : reportItemList) {
 
