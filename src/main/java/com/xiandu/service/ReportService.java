@@ -71,6 +71,9 @@ public class ReportService {
     }
 
     protected List<ReportItem> parseToReportItemList (JsonRootBean jsonRootBean) {
+        if(jsonRootBean.getBody().getTradeListResponse().getTrades() == null) {
+            return new ArrayList<>();
+        }
         List<Trade> tradeList = jsonRootBean.getBody().getTradeListResponse().getTrades().getTrade();
 
         List<Trade> normalizeTradeList = normalizeTradeList(tradeList);
