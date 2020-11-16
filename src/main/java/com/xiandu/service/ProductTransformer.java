@@ -5,16 +5,14 @@ import com.google.gson.reflect.TypeToken;
 import com.xiandu.model.Product;
 import com.xiandu.model.ReportItem;
 import com.xiandu.model.Sku;
+import com.xiandu.utils.Constants;
 import org.apache.commons.lang3.StringUtils;
 
 import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.stream.Collectors;
+import java.util.*;
 
 /**
  * Created by Administrator on 8/9/2020.
@@ -23,14 +21,10 @@ public class ProductTransformer {
 
     public void execute(List<ReportItem> reportItemList) {
 
-        String productFileName = "c://xiandu/input/product_meta.json";
 
-        String skuFileName = "c://xiandu/input/sku_meta.json";
+        Path productFile = new File(Constants.PRODUCT_META_FILE).toPath();
 
-        Path productFile = new File(productFileName).toPath();
-
-        Path skuFile = new File(skuFileName).toPath();
-
+        Path skuFile = new File(Constants.SKU_META_FILE).toPath();
 
         List<String> productStrList = null;
         List<String> skuStrList = null;
@@ -80,6 +74,43 @@ public class ProductTransformer {
             reportItem.setConvQty(reportItem.getOriginalQty() * reportItem.getSkuRatio());
 
         }
+        splitBySkuShortName(reportItemList);
+    }
+
+    private void splitBySkuShortName(List<ReportItem> reportItemList) {
+
+        List<ReportItem> splittedList = new ArrayList<>();
+
+        for (ReportItem reportItem : reportItemList) {
+
+            String skuShortName = reportItem.getSkuShortName();
+
+            if (skuShortName != null) {
+                List<String> subSkuShortNameList = Arrays.asList(skuShortName.split("\\|"));
+
+                for (String subSkuShortName : subSkuShortNameList) {
+
+                    ReportItem ri = new ReportItem(reportItem);
+                    if (reportItem.getProductName().contains(Constants.COMPOSITE_STR_PATTERN)) {
+                        //composite products
+
+                        String[] array = subSkuShortName.split("\\*");
+                        ri.setSkuShortName(array[0]);
+                        ri.setConvQty(Integer.parseInt(array[1]));
+                        ri.setProductShortName(StringUtils.EMPTY);
+                    }
+
+                    splittedList.add(ri);
+                }
+
+            } else {
+                splittedList.add(reportItem);
+            }
+        }
+
+        reportItemList.clear();
+        reportItemList.addAll(splittedList);
 
     }
+
 }

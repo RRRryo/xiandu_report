@@ -155,4 +155,25 @@ public class ReportItem {
     public void setSellerMemo(String sellerMemo) {
         this.sellerMemo = sellerMemo;
     }
+
+    public ReportItem() {
+    }
+
+    public ReportItem(ReportItem reportItem) {
+        this.orderId = reportItem.orderId;
+        this.receiverName = reportItem.receiverName;
+        this.receiverState = reportItem.receiverState;
+        this.receiverCity = reportItem.receiverCity;
+        this.receiverDistrict = reportItem.receiverDistrict;
+        this.productName = reportItem.productName;
+        this.productShortName = reportItem.productShortName;
+        this.skuId = reportItem.skuId;
+        this.skuName = reportItem.skuName;
+        this.skuShortName = reportItem.skuShortName;
+        this.skuRatio = reportItem.skuRatio;
+        this.originalQty = reportItem.originalQty;
+        this.convQty = reportItem.convQty;
+        this.logistic = reportItem.logistic;
+        this.sellerMemo = reportItem.sellerMemo;
+    }
 }
