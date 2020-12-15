@@ -1,122 +1,122 @@
 [
   {
     "sku_properties_name": "鸭排2包+碎碎鸭2包",
-    "sku_short_name": "鸭排*2|碎碎鸭*2",
+	"sku_short_name": "鸭排*2|碎碎鸭*2",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鸭排3+碎碎鸭3（送10元招牌素丝",
-    "sku_short_name": "鸭排*3|碎碎鸭*3|麻辣素丝*1",
+	"sku_short_name": "鸭排*3|碎碎鸭*3|麻辣素丝*1",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鸭排1包+碎碎鸭1包",
-    "sku_short_name": "鸭排*1|碎碎鸭*1",
+	"sku_short_name": "鸭排*1|碎碎鸭*1",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鸭排1包+碎碎鸭2包",
-    "sku_short_name": "鸭排*1|碎碎鸭*2",
-    "sku_ratio": 1
-  },
-  {
-    "sku_properties_name": "鸭排2包",
-    "sku_short_name": "鸭排*2",
-    "sku_ratio": 1
-  },
-  {
-    "sku_properties_name": "碎碎鸭2包",
-    "sku_short_name": "碎碎鸭*2",
+	"sku_short_name": "鸭排*1|碎碎鸭*2",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鸭排2包+碎碎鸭1包",
-    "sku_short_name": "鸭排*2|碎碎鸭*1",
+	"sku_short_name": "鸭排*2|碎碎鸭*1",
     "sku_ratio": 1
   },
   {
+    "sku_properties_name": "鸭排2包",
+	"sku_short_name": "鸭排*2",
+    "sku_ratio": 1
+  },
+  {
+    "sku_properties_name": "碎碎鸭2包",
+	"sku_short_name": "碎碎鸭*2",
+    "sku_ratio": 1
+  },
+ {
     "sku_properties_name": "鸭排3包",
-    "sku_short_name": "鸭排*3",
+	"sku_short_name": "鸭排*3",
     "sku_ratio": 1
   },
-  {
+ {
     "sku_properties_name": "碎碎鸭3包",
-    "sku_short_name": "碎碎鸭*3",
+	"sku_short_name": "碎碎鸭*3",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "微辣",
-    "sku_short_name": "（微辣）",
+	"sku_short_name": "（微辣）",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "特辣",
-    "sku_short_name": "（辣）",
+	"sku_short_name": "（辣）",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鲜货现抽真空",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鲜货预包装",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "礼品真空装",
-    "sku_short_name": "小礼品",
+	"sku_short_name": "小礼品",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "精品酱鸭",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "顺丰到付",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鲜货2个/袋",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鲜货1包",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 1
   },
   {
     "sku_properties_name": "鲜货2只",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 2
   },
   {
     "sku_properties_name": "鹌鹑2只",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 2
   },
   {
     "sku_properties_name": "鲜货3包",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 3
   },
   {
     "sku_properties_name": "鲜货5包",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 5
   },
   {
     "sku_properties_name": "鲜货4包",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 4
   },
   {
     "sku_properties_name": "鲜货6包",
-    "sku_short_name": "",
+	"sku_short_name": "",
     "sku_ratio": 6
   }
 ]
