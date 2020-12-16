@@ -25,11 +25,9 @@ public class ArchiveService {
                 archiveDir.mkdir();
             }
             for (Path filePath : filePaths) {
-                Path temp = Files.move(filePath, Paths.get(archiveDir.getPath() + "/"
-                        +filePath.getFileName()));
-                if (temp == null) {
-                    System.out.println("Failed to move the file");
-                }
+                Path targetPath = Paths.get(archiveDir.getPath() + "/" + filePath.getFileName());
+                Files.deleteIfExists(targetPath);
+                Files.move(filePath, targetPath);
             }
             new File(Constants.INPUT_PATH + "trade_1_1.json").createNewFile();
             new File(Constants.INPUT_PATH + "trade_2_1.json").createNewFile();

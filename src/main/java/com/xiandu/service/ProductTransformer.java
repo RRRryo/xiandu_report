@@ -96,7 +96,8 @@ public class ProductTransformer {
 
                         String[] array = subSkuShortName.split("\\*");
                         ri.setSkuShortName(array[0]);
-                        ri.setConvQty(Integer.parseInt(array[1]));
+                        int ratio = Integer.parseInt(array[1]);
+                        ri.setConvQty(ri.getOriginalQty() * ratio);
                         ri.setProductShortName(StringUtils.EMPTY);
                     }
 
