@@ -3,6 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/xiandu_report.iml" filepath="$PROJECT_DIR$/xiandu_report.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/xiandu_report.main.iml" filepath="$PROJECT_DIR$/.idea/modules/xiandu_report.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/xiandu_report.test.iml" filepath="$PROJECT_DIR$/.idea/modules/xiandu_report.test.iml" />
     </modules>
   </component>
 </project>
