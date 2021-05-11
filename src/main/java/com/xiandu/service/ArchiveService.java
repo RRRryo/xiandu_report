@@ -21,7 +21,7 @@ public class ArchiveService {
             Path dirPath = Paths.get(Constants.INPUT_PATH);
             List<Path> filePaths = Files.list(dirPath).collect(Collectors.toList());
             File archiveDir = new File(Constants.ARCHIVE_PATH + DateUtils.getTodayIsoFormat());
-            if(!archiveDir.exists()){
+            if (!archiveDir.exists()) {
                 archiveDir.mkdir();
             }
             for (Path filePath : filePaths) {
@@ -31,6 +31,7 @@ public class ArchiveService {
             }
             new File(Constants.INPUT_PATH + "trade_1_1.json").createNewFile();
             new File(Constants.INPUT_PATH + "trade_2_1.json").createNewFile();
+            new File(Constants.INPUT_PATH + "trade_4_1.json").createNewFile();
         } catch (IOException e) {
             e.printStackTrace();
         }

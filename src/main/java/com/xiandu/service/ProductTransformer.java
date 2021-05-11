@@ -21,11 +21,8 @@ public class ProductTransformer {
 
     public void execute(List<ReportItem> reportItemList) {
 
-
         Path productFile = new File(Constants.PRODUCT_META_FILE).toPath();
-
         Path skuFile = new File(Constants.SKU_META_FILE).toPath();
-
         List<String> productStrList = null;
         List<String> skuStrList = null;
         try {
@@ -34,31 +31,22 @@ public class ProductTransformer {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
         String productStr = StringUtils.join(productStrList, "");
         String skuStr = StringUtils.join(skuStrList, "");
-
         Gson gsonProduct = new Gson();
-
         Gson skuProduct = new Gson();
-
-        List<Product> productList = gsonProduct.fromJson(productStr, new TypeToken<List<Product>>(){}.getType());
-
-        List<Sku> skuList = skuProduct.fromJson(skuStr, new TypeToken<List<Sku>>(){}.getType());
-
+        List<Product> productList = gsonProduct.fromJson(productStr, new TypeToken<List<Product>>() {
+        }.getType());
+        List<Sku> skuList = skuProduct.fromJson(skuStr, new TypeToken<List<Sku>>() {
+        }.getType());
         for (ReportItem reportItem : reportItemList) {
-
-            Optional<Product> product = productList.stream()
+            Optional<Product> product = Objects.requireNonNull(productList).stream()
                     .filter(targetProduct ->
                             reportItem.getProductName().contains(targetProduct.getProduct_long_name()))
                     .findFirst();
-
-            if (product.isPresent()) {
-                reportItem.setProductShortName(product.get().getProduct_short_name());
-            }
-
+            product.ifPresent(value -> reportItem.setProductShortName(value.getProduct_short_name()));
             if (reportItem.getSkuName() != null) {
-                Optional<Sku> sku = skuList.stream()
+                Optional<Sku> sku = Objects.requireNonNull(skuList).stream()
                         .filter(targetSku ->
                                 reportItem.getSkuName().contains(targetSku.getSku_properties_name()))
                         .findFirst();
@@ -72,43 +60,32 @@ public class ProductTransformer {
                 }
             }
             reportItem.setConvQty(reportItem.getOriginalQty() * reportItem.getSkuRatio());
-
         }
         splitBySkuShortName(reportItemList);
     }
 
     private void splitBySkuShortName(List<ReportItem> reportItemList) {
-
         List<ReportItem> splittedList = new ArrayList<>();
-
         for (ReportItem reportItem : reportItemList) {
-
             String skuShortName = reportItem.getSkuShortName();
-
             if (skuShortName != null) {
-                List<String> subSkuShortNameList = Arrays.asList(skuShortName.split("\\|"));
-
+                String[] subSkuShortNameList = skuShortName.split("\\|");
                 for (String subSkuShortName : subSkuShortNameList) {
-
                     ReportItem ri = new ReportItem(reportItem);
                     if (reportItem.getProductName().contains(Constants.COMPOSITE_STR_PATTERN)) {
                         //composite products
-
                         String[] array = subSkuShortName.split("\\*");
                         ri.setSkuShortName(array[0]);
                         int ratio = Integer.parseInt(array[1]);
                         ri.setConvQty(ri.getOriginalQty() * ratio);
                         ri.setProductShortName(StringUtils.EMPTY);
                     }
-
                     splittedList.add(ri);
                 }
-
             } else {
                 splittedList.add(reportItem);
             }
         }
-
         reportItemList.clear();
         reportItemList.addAll(splittedList);
 

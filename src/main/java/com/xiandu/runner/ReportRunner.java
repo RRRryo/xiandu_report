@@ -23,8 +23,8 @@ import java.util.stream.Collectors;
  */
 public class ReportRunner {
 
-    private ReportService reportService = new ReportService();
-    private ArchiveService archiveService = new ArchiveService();
+    private final ReportService reportService = new ReportService();
+    private final ArchiveService archiveService = new ArchiveService();
 
     public void execute() {
         Map<String, List<JsonRootBean>> jsonMerchantMap = new HashMap<>();
@@ -37,16 +37,16 @@ public class ReportRunner {
                 String jsonStr = StringUtils.join(jsonStrList, StringUtils.EMPTY);
                 Gson gson = XianduGsonFactory.getXianduGson();
                 String merchantKey = "";
-                if (filePath.getFileName().toString().startsWith(Constants.INPUT_FILE_NAME_1_PREFIX)) {
-                    merchantKey = Constants.MERCHANT_1;
-                } else if (filePath.getFileName().toString().startsWith(Constants.INPUT_FILE_NAME_2_PREFIX)) {
-                    merchantKey = Constants.MERCHANT_2;
+                String fileName = filePath.getFileName().toString();
+                if (fileName.startsWith(Constants.INPUT_FILE_NAME_1_PREFIX)) {
+                    merchantKey = Constants.JSON_MERCHANT_MAP.get(Constants.INPUT_FILE_NAME_1_PREFIX);
+                } else if (fileName.startsWith(Constants.INPUT_FILE_NAME_2_PREFIX)) {
+                    merchantKey = Constants.JSON_MERCHANT_MAP.get(Constants.INPUT_FILE_NAME_2_PREFIX);
+                } else if (fileName.startsWith(Constants.INPUT_FILE_NAME_4_PREFIX)) {
+                    merchantKey = Constants.JSON_MERCHANT_MAP.get(Constants.INPUT_FILE_NAME_4_PREFIX);
                 }
-                if (jsonMerchantMap.get(merchantKey) == null) {
-                    jsonMerchantMap.put(merchantKey, new ArrayList<>());
-                }
+                jsonMerchantMap.putIfAbsent(merchantKey, new ArrayList<>());
                 jsonMerchantMap.get(merchantKey).add(gson.fromJson(jsonStr, JsonRootBean.class));
-
             }
             reportService.execute(jsonMerchantMap);
             archiveService.execute();
