@@ -35,4 +35,7 @@ jar {
                 'Main-Class': 'com.xiandu.runner.ReportRunner'
         )
     }
+    from {
+        configurations.compile.collect { it.isDirectory() ? it : zipTree(it) }
+    }
 }

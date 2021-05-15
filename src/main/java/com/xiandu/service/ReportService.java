@@ -75,7 +75,6 @@ public class ReportService {
                     }
                     lastMergeTid = trade.getMergeTid();
                 }
-                System.out.println(trade.getTid());
                 for (Order order : orderList) {
                     ReportItem reportItem = new ReportItem();
                     reportItem.setOrderId(orderId);

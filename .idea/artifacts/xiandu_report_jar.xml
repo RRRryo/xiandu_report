@@ -1,5 +1,5 @@
 <component name="ArtifactManager">
-  <artifact type="jar" name="xiandu_report:jar">
+  <artifact type="jar" build-on-make="true" name="xiandu_report:jar">
     <output-path>$PROJECT_DIR$/out/artifacts/xiandu_report_jar</output-path>
     <root id="archive" name="xiandu_report.jar">
       <element id="module-output" name="xiandu_report" />
