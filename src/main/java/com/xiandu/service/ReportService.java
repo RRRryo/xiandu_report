@@ -50,6 +50,12 @@ public class ReportService {
         }
     }
 
+    /**
+     *
+     * @param merchantNb
+     * @param jsonRootBeanList
+     * @return
+     */
     protected List<ReportItem> parseToReportItemList(String merchantNb, List<JsonRootBean> jsonRootBeanList) {
         int orderId = 0;
         List<ReportItem> reportItemList = new ArrayList<>();
@@ -59,6 +65,13 @@ public class ReportService {
             }
             List<Trade> tradeList = jsonRootBean.getBody().getTradeListResponse().getTrades().getTrade();
             List<Trade> normalizeTradeList = normalizeTradeList(tradeList);
+            if (Constants.MERCHANT_4.equals(merchantNb)) {
+                normalizeTradeList.sort((trade1, trade2) -> {
+                    String tradeId1 = trade1.getReceiver_address() + "::" + trade1.getReceiver_name() + "::" + trade1.getReceiver_phone();
+                    String tradeId2 = trade2.getReceiver_address() + "::" + trade2.getReceiver_name() + "::" + trade2.getReceiver_phone();
+                    return tradeId1.compareTo(tradeId2);
+                });
+            }
             String lastMergeTid = "";
             for (Trade trade : normalizeTradeList) {
                 List<Order> orderList = trade.getOrders().getOrder();
