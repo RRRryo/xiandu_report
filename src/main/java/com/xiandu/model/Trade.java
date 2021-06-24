@@ -20,7 +20,7 @@ public class Trade {
     private String received_payment;
     private String type;
     private String step_paid_fee;
-    private boolean has_buyer_message;
+//    private boolean has_buyer_message;
     private String payment;
     private String receiver_country;
     private String buyer_message;
