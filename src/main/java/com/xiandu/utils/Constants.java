@@ -12,6 +12,7 @@ public class Constants {
 
     public static final String MERCHANT_1 = "MERCHANT_1";
     public static final String MERCHANT_2 = "MERCHANT_2";
+    public static final String MERCHANT_3 = "MERCHANT_3";
     public static final String MERCHANT_4 = "MERCHANT_4";
 
     public static final String INPUT_FILE_NAME_1_PREFIX = "trade_1";

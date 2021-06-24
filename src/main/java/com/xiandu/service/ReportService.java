@@ -65,10 +65,11 @@ public class ReportService {
             }
             List<Trade> tradeList = jsonRootBean.getBody().getTradeListResponse().getTrades().getTrade();
             List<Trade> normalizeTradeList = normalizeTradeList(tradeList);
+            //sort for MERCHANT_4 only
             if (Constants.MERCHANT_4.equals(merchantNb)) {
                 normalizeTradeList.sort((trade1, trade2) -> {
-                    String tradeId1 = trade1.getReceiver_address() + "::" + trade1.getReceiver_name() + "::" + trade1.getReceiver_phone();
-                    String tradeId2 = trade2.getReceiver_address() + "::" + trade2.getReceiver_name() + "::" + trade2.getReceiver_phone();
+                    String tradeId1 = trade1.getReceiver_address() + "::" + trade1.getReceiver_name() + "::" + trade1.getReceiver_mobile();
+                    String tradeId2 = trade2.getReceiver_address() + "::" + trade2.getReceiver_name() + "::" + trade2.getReceiver_mobile();
                     return tradeId1.compareTo(tradeId2);
                 });
             }
@@ -76,8 +77,8 @@ public class ReportService {
             for (Trade trade : normalizeTradeList) {
                 List<Order> orderList = trade.getOrders().getOrder();
                 orderList.removeIf(targetOrder -> !targetOrder.getStatus().equalsIgnoreCase(WAIT_SELLER_SEND_GOODS));
-                if (Constants.MERCHANT_4.equals(merchantNb)) {
-                    String currentId = trade.getReceiver_address() + "::" + trade.getReceiver_name() + "::" + trade.getReceiver_phone();
+                if (!Constants.MERCHANT_3.equals(merchantNb)) {
+                    String currentId = trade.getReceiver_address() + "::" + trade.getReceiver_name() + "::" + trade.getReceiver_mobile();
                     if (!lastMergeTid.equals(currentId)) {
                         orderId++;
                     }
@@ -117,8 +118,8 @@ public class ReportService {
     }
 
     private void fillReceiverName(ReportItem reportItem, Trade trade, String merchantNb) {
-        if (Constants.MERCHANT_4.equals(merchantNb)) {
-            reportItem.setReceiverName(trade.getReceiver_name() + trade.getReceiver_phone().substring(trade.getReceiver_phone().length() - 2));
+        if (!Constants.MERCHANT_3.equals(merchantNb)) {
+            reportItem.setReceiverName(trade.getReceiver_name() + trade.getReceiver_mobile().substring(trade.getReceiver_mobile().length() - 2));
         } else {
             reportItem.setReceiverName(trade.getReceiver_name());
         }
