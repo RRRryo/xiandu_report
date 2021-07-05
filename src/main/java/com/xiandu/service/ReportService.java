@@ -51,7 +51,6 @@ public class ReportService {
     }
 
     /**
-     *
      * @param merchantNb
      * @param jsonRootBeanList
      * @return
@@ -117,11 +116,18 @@ public class ReportService {
         return reportItemList;
     }
 
-    private void fillReceiverName(ReportItem reportItem, Trade trade, String merchantNb) {
-        if (!Constants.MERCHANT_3.equals(merchantNb)) {
-            reportItem.setReceiverName(trade.getReceiver_name() + trade.getReceiver_mobile().substring(trade.getReceiver_mobile().length() - 2));
-        } else {
-            reportItem.setReceiverName(trade.getReceiver_name());
+    private void fillReceiverName(ReportItem reportItem, Trade trade, String merchantId) {
+        switch (merchantId) {
+            case Constants.MERCHANT_1:
+            case Constants.MERCHANT_2:
+                reportItem.setReceiverName(trade.getReceiver_name() + trade.getReceiver_mobile().substring(trade.getReceiver_mobile().length() - 4));
+                break;
+            case Constants.MERCHANT_4:
+                reportItem.setReceiverName(trade.getReceiver_name() + trade.getReceiver_mobile().substring(trade.getReceiver_mobile().length() - 2));
+                break;
+            default:
+                reportItem.setReceiverName(trade.getReceiver_name());
+                break;
         }
     }
 
